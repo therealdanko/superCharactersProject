@@ -52,16 +52,56 @@ function loadHero(data, player){
     const userHeroImage = document.getElementById('user-image');
     userHeroImage.src = data.image.url;
 
-    const userHeroData = document.getElementById('user-info');
-    // fill in data
+    // fill in hero data
+    // name
+    document.getElementById('user-name').textContent = `Name : ${data.name}`;
+
+    // powerstats
+    document.getElementById('user-int').textContent = `Intelligence : ${data.powerstats.intelligence}`;
+    document.getElementById('user-str').textContent = `Strength : ${data.powerstats.strength}`;
+    document.getElementById('user-spd').textContent = `Speed : ${data.powerstats.speed}`;
+    document.getElementById('user-dur').textContent = `Durability : ${data.powerstats.durability}`;
+    document.getElementById('user-pow').textContent = `Power : ${data.powerstats.power}`;
+    document.getElementById('user-com').textContent = `Combat : ${data.powerstats.combat}`;
+
+    //bio
+    document.getElementById('user-fullname').textContent = `Full Name : ${data.biography["full-name"]}`;
+    document.getElementById('user-alterego').textContent = `Alter Ego : ${data.biography["alter-egos"]}`;
+    document.getElementById('user-alignment').textContent = `Alignment : ${data.biography.alignment}`;
+
+    //appearance
+    document.getElementById('user-gender').textContent = `Gender : ${data.appearance.gender}`;
+    document.getElementById('user-race').textContent = `Race : ${data.appearance.race}`;
+    document.getElementById('user-height').textContent = `Height : ${data.appearance.height[0]}, ${data.appearance.height[1]}`;
+    document.getElementById('user-weight').textContent = `Weight : ${data.appearance.weight[0]}, ${data.appearance.weight[1]}`;
   }
   // if player is the cpu (top)
   else if(player === 2){
     const enemyHeroImage = document.getElementById('enemy-image');
     enemyHeroImage.src = data.image.url;
 
-    const enemyHeroData = document.getElementById('enemy-info');
-    // fill in data
+    // fill in hero data
+    // name
+    document.getElementById('enemy-name').textContent = `Name : ${data.name}`;
+
+    // powerstats
+    document.getElementById('enemy-int').textContent = `Intelligence : ${data.powerstats.intelligence}`;
+    document.getElementById('enemy-str').textContent = `Strength : ${data.powerstats.strength}`;
+    document.getElementById('enemy-spd').textContent = `Speed : ${data.powerstats.speed}`;
+    document.getElementById('enemy-dur').textContent = `Durability : ${data.powerstats.durability}`;
+    document.getElementById('enemy-pow').textContent = `Power : ${data.powerstats.power}`;
+    document.getElementById('enemy-com').textContent = `Combat : ${data.powerstats.combat}`;
+
+    //bio
+    document.getElementById('enemy-fullname').textContent = `Full Name : ${data.biography["full-name"]}`;
+    document.getElementById('enemy-alterego').textContent = `Alter Ego : ${data.biography["alter-egos"]}`;
+    document.getElementById('enemy-alignment').textContent = `Alignment : ${data.biography.alignment}`;
+
+    //appearance
+    document.getElementById('enemy-gender').textContent = `Gender : ${data.appearance.gender}`;
+    document.getElementById('enemy-race').textContent = `Race : ${data.appearance.race}`;
+    document.getElementById('enemy-height').textContent = `Height : ${data.appearance.height[0]}, ${data.appearance.height[1]}`;
+    document.getElementById('enemy-weight').textContent = `Weight : ${data.appearance.weight[0]}, ${data.appearance.weight[1]}`;
   }
 }
 
