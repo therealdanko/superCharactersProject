@@ -8,4 +8,3 @@
 
 API Website: https://superheroapi.com/ids.html
 
-API Token: 1955715441283288
