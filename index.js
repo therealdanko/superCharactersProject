@@ -1,6 +1,8 @@
 // GLOBALS
 const URL         = 'https://www.superheroapi.com/api.php/1955715441283288/';
 const RANDOM_HERO = getRandomIntInclusive(1, 731);
+const RANDOM_ENEMY = randomNumber();
+const fightButton = document.getElementById("fight-button")
 
 // fetches random hero data from superhero API
 // player:   1 = user
@@ -9,7 +11,17 @@ const RANDOM_HERO = getRandomIntInclusive(1, 731);
 function fetchRandomHero(player, randomHeroID) {
   fetch(`${URL}${randomHeroID}`)
     .then(res  => res.json())
-    .then(data => loadHero(data, player));
+    .then(data => {
+        loadHero(data, player)
+    });
+}
+
+function fetchRandomEnemy(player, randomEnemyID) {
+    fetch(`${URL}${randomEnemyID}`)
+    .then(res  => res.json())
+    .then(data => {
+        loadHero(data, player)
+    });
 }
 
 // produces random hero ID to fetch
@@ -56,8 +68,8 @@ function loadHero(data, player){
 // load all UI elements
 function loadPage(){
   // init user and enemy hero images and data
+  fetchRandomEnemy(2, RANDOM_ENEMY);
   fetchRandomHero(1, RANDOM_HERO);
-  fetchRandomHero(2, randomNumber());
 }
 
 // click event for player next button, loads in new char
@@ -72,15 +84,21 @@ function handleEnemyNext(){
 
 // determines a winner and then loads in two new characters
 // OR winner stays on the field
+fightButton.addEventListener("click", handleFight)
 function handleFight(){
-  ;
+    const userHeroImage = document.getElementById('user-image')
+    userHeroImage.src = ""
+    const enemyHeroImage = document.getElementById('enemy-image')
+    enemyHeroImage.src = "";
+    initPage()
+    console.log("herro")
+    //  initPage()
 }
 
 const init = () => {
   loadPage();
   handlePlayerNext();
   handleEnemyNext();
-  handleFight();
 }
 
 init();
