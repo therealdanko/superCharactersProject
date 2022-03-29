@@ -54,7 +54,7 @@ function loadHero(data, player){
 }
 
 // load all UI elements
-function initPage(){
+function loadPage(){
   // init user and enemy hero images and data
   fetchRandomHero(1, RANDOM_HERO);
   fetchRandomHero(2, randomNumber());
@@ -77,7 +77,7 @@ function handleFight(){
 }
 
 const init = () => {
-  initPage();
+  loadPage();
   handlePlayerNext();
   handleEnemyNext();
   handleFight();

@@ -7,27 +7,44 @@
 
 #user-image{
     display: block;
-    margin-top: 1%;
+    margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1%;
-    width: 17%;
+    margin-bottom: 1vh;
+    width: 15vw;
 }
 
 #enemy-image{
     display: block;
-    margin-top: 1%;
+    margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1%;
-    width: 17%;
+    margin-bottom: 1vh;
+    width: 15vw;
+}
+
+#user-info{
+    background-color: hsl(115, 36%, 60%);
+    margin-top: 2vh;
+    margin-right: 3vw;
+    float: right;
+    width: 33vw;
+    height: 85vh;
+}
+
+#enemy-info{
+    background-color: hsl(347, 41%, 57%);
+    margin-top: 2vh;
+    margin-left: 3vw;
+    float: left;
+    width: 33vw;
+    height: 85vh;
 }
 
 #fight-button{
-    display: inline-block;
     background-color: hsl(0, 77%, 45%);
     border-radius: 10px;
-    border: 4px double #cccccc;
+    border: 4px double #70b7d3;
     color: #000000;
     font-family: 'Bebas Neue';
     text-align: center;
@@ -39,6 +56,39 @@
     margin: 5px;
 }
     
+#user-next-button{
+    background-color: hsl(115, 36%, 60%);
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #000000;
+    font-family: 'Bebas Neue';
+    text-align: center;
+    font-size: xx-large;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px;
+    float: right;
+}
+
+
+#enemy-next-button{
+    background-color: hsl(347, 41%, 57%);
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #000000;
+    font-family: 'Bebas Neue';
+    text-align: center;
+    font-size: xx-large;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px;
+    float: left;
+}
+
 button span {
     cursor: pointer;
     display: inline-block;
