@@ -1,14 +1,19 @@
 // GLOBALS
+// require("dotenv").config()
+// import dotenv from "dotenv"
+// dotenv.config()
 const URL         = 'https://www.superheroapi.com/api.php/1955715441283288/';
 const RANDOM_HERO = getRandomIntInclusive(1, 731);
 const RANDOM_ENEMY = randomNumber();
 const fightButton = document.getElementById("fight-button")
+
 
 // fetches random hero data from superhero API
 // player:   1 = user
 //           2 = cpu
 // randomHeroID use getRandomIntInclusive(1, 731)
 function fetchRandomHero(player, randomHeroID) {
+    console.log(process.env)
   fetch(`${URL}${randomHeroID}`)
     .then(res  => res.json())
     .then(data => {
@@ -142,3 +147,4 @@ const init = () => {
 }
 
 init();
+
