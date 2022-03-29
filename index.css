@@ -24,68 +24,77 @@
 }
 
 #user-info{
-    background-color: hsl(115, 36%, 60%);
+    background-color: hsl(115, 63%, 75%);
     margin-top: 2vh;
-    margin-right: 3vw;
+    margin-right: 1vw;
     float: right;
     width: 33vw;
-    height: 85vh;
+    height: 90vh;
+}
+
+#user-info{
+    font-family: 'Bangers';
 }
 
 #enemy-info{
-    background-color: hsl(347, 41%, 57%);
+    font-family: 'Bangers';
+}
+
+#enemy-info{
+    background-color: hsl(347, 68%, 73%);
     margin-top: 2vh;
-    margin-left: 3vw;
+    margin-left: 1vw;
     float: left;
     width: 33vw;
-    height: 85vh;
+    height: 90vh;
 }
 
 #fight-button{
     background-color: hsl(0, 77%, 45%);
     border-radius: 10px;
-    border: 4px double #70b7d3;
+    border: 4px double #000000;
     color: #000000;
     font-family: 'Bebas Neue';
     text-align: center;
     font-size: xx-large;
-    padding: 20px;
-    width: 200px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 9vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
 }
     
 #user-next-button{
-    background-color: hsl(115, 36%, 60%);
+    background-color: hsl(115, 63%, 75%);
     border-radius: 10px;
-    border: 4px double #cccccc;
+    border: 4px double hsl(347, 68%, 73%);
     color: #000000;
     font-family: 'Bebas Neue';
     text-align: center;
     font-size: xx-large;
-    padding: 20px;
-    width: 200px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 9vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 10px;
+    margin-right: 1vw;
     float: right;
 }
 
-
 #enemy-next-button{
-    background-color: hsl(347, 41%, 57%);
+    background-color: hsl(347, 68%, 73%);
     border-radius: 10px;
-    border: 4px double #cccccc;
+    border: 4px double hsl(115, 63%, 75%);
     color: #000000;
     font-family: 'Bebas Neue';
     text-align: center;
     font-size: xx-large;
-    padding: 20px;
-    width: 200px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 9vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 10px;
+    margin-left: 1vw;
     float: left;
 }
 
