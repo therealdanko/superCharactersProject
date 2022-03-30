@@ -13,7 +13,6 @@ let currentEnemyHero;
 // fetches random hero data from superhero API
 // player:   1 = user
 //           2 = cpu
-// randomHeroID use getRandomIntInclusive(1, 731)
 function fetchRandomHero(player, randomHeroID) {
   fetch(`${URL}${randomHeroID}`)
     .then(res  => res.json())
@@ -124,6 +123,7 @@ function loadPage(){
 // click event for player next button, loads in new char
 function handleUserNext(){
   fetchRandomHero(1, Math.floor(Math.random() * 731));
+  //fetchAztar(1);
 }
 
 // click event for enemy next button, loads in new char
@@ -131,27 +131,35 @@ function handleEnemyNext(){
   fetchRandomEnemy(2, Math.floor(Math.random() * 731));
 }
 
+// ! TODO: Handle multiple image 404s
 function imgError(image) {
   image.onerror = "";
   image.src = "./404.jpg";
+  image.alt = "./404.jpg";
   return true;
+}
+
+function fetchAztar(player) {
+    fetch(`${URL}59`)
+      .then(res  => res.json())
+      .then(data => {
+        currentUserHero = data;
+        loadHero(data, player);
+      })
 }
 
 // determines a winner and then loads in two new characters
 // OR winner stays on the field
 function handleFight(){  
   const winner = goldenAlgorithm();
-  //console.log(`winner: ${winner}`);
 
   // user wins
-  if (winner === 1)
-  {
+  if (winner === 1){
     fetchRandomEnemy(2, Math.floor(Math.random() * 731));
   }
 
   // cpu wins
-  else
-  {
+  else{
     fetchRandomHero(1, Math.floor(Math.random() * 731));
   }
 }
@@ -172,9 +180,6 @@ function goldenAlgorithm() {
                          (currentEnemyHero.powerstats.power        * multiplier(0.5, 1.3)) +
                          (currentEnemyHero.powerstats.combat       * multiplier(0.9, 1.1)))
 
-  // console.log(`user: ${userPowerLevel}`);
-  // console.log(`enemy: ${enemyPowerLevel}`);
-
   if(userPowerLevel >= enemyPowerLevel)
   {
     return 1;
@@ -193,7 +198,21 @@ function RNGRating(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function handlePlay(){
+  // hide play
+  document.getElementById('play-button-container').remove();
+
+  // reveal everything else
+  document.getElementById('user-info').hidden = false;
+  document.getElementById('enemy-info').hidden = false;
+  document.getElementById('enemy-image').hidden = false;
+  document.getElementById('user-image').hidden = false;
+  document.getElementById('button').hidden = false;
+}
+
+// runtime
 const init = () => {
+  document.getElementById('play-button').addEventListener('click', handlePlay);
   loadPage();
   fightButton.addEventListener("click", handleFight);
   userNextButton.addEventListener("click", handleUserNext);

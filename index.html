@@ -14,9 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="app-title">Super Hero Destroyer</div>
+    <div id="app-title">Super Destroyer</div>
     
-    <div id="user-info">
+    <div id="user-info" hidden>
         <ul class="text" id="user-name">Name : </ul>
         <ul class="text">Stats : 
             <ul class="text" id="user-int">Intelligence : </ul>
@@ -39,7 +39,7 @@
         </ul>
     </div>
 
-    <div id="enemy-info">
+    <div id="enemy-info" hidden>
         <ul class="text" id="enemy-name">Name : </ul>
         <ul class="text">Stats : 
             <ul class="text" id="enemy-int">Intelligence : </ul>
@@ -62,9 +62,9 @@
         </ul>
     </div>
     
-    <img id="enemy-image" onerror="imgError(this);">
+    <img hidden id="enemy-image" onerror="imgError(this);">
 
-    <div id="button" style="text-align:center">
+    <div hidden id="button" style="text-align:center">
         <button id="fight-button">
             <span>Fight!</span>
         </button>
@@ -72,15 +72,20 @@
             <span>Next Hero!</span>
         </button>
         <button id="enemy-next-button">
-            <span>Next Hero!</span>
+            <span>Next Enemy!</span>
         </button>
     </div>
 
-    <img id="user-image" onerror="imgError(this);">
+    <img hidden id="user-image" onerror="imgError(this);">
+
+    <div id="play-button-container">
+        <button id="play-button">
+            <span>Play!</span>
+        </button>
+    </div>
 
     <!-- <div id="user-previous-button"></div>   Stretch goal   -->
     <!-- <div id="enemy-previous-button"></div>  Stretch goal   -->
-      
     
 </body>
 </html>
