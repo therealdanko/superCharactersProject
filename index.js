@@ -2,10 +2,12 @@
 // require("dotenv").config()
 // import dotenv from "dotenv"
 // dotenv.config()
-const URL         = 'https://www.superheroapi.com/api.php/1955715441283288/';
-const RANDOM_HERO = getRandomIntInclusive(1, 731);
-const RANDOM_ENEMY = randomNumber();
-const fightButton = document.getElementById("fight-button")
+const URL              = 'https://www.superheroapi.com/api.php/1955715441283288/';
+const fightButton      = document.getElementById("fight-button");
+const userNextButton   = document.getElementById("user-next-button");
+const enemyNextButton  = document.getElementById("enemy-next-button");
+let currentUserHero;
+let currentEnemyHero;
 
 
 // fetches random hero data from superhero API
@@ -13,40 +15,29 @@ const fightButton = document.getElementById("fight-button")
 //           2 = cpu
 // randomHeroID use getRandomIntInclusive(1, 731)
 function fetchRandomHero(player, randomHeroID) {
-    console.log(process.env)
   fetch(`${URL}${randomHeroID}`)
     .then(res  => res.json())
     .then(data => {
-        loadHero(data, player)
-    });
+      currentUserHero = data;
+      console.log(currentUserHero);
+      loadHero(data, player)
+    })
 }
 
 function fetchRandomEnemy(player, randomEnemyID) {
     fetch(`${URL}${randomEnemyID}`)
     .then(res  => res.json())
     .then(data => {
-        loadHero(data, player)
-    });
-}
-
-// produces random hero ID to fetch
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
+      currentEnemyHero = data;
+      console.log(currentEnemyHero);
+      loadHero(data, player)
+    })
 }
 
 // produces random hero ID to fetch
 function randomNumber() {
-  let resultA;
-  resultA = Math.floor(Math.random() * 731)
-  
-  return resultA;
+  return Math.floor(Math.random() * 731)
 }
-
-let resultA = Math.floor(Math.random() * 731)
-let resultB = Math.floor(Math.random() * 731)
-console.log(resultA, resultB)
 
 // loads hero image and data based on user or cpu
 // player:   1 = user
@@ -113,38 +104,99 @@ function loadHero(data, player){
 // load all UI elements
 function loadPage(){
   // init user and enemy hero images and data
-  fetchRandomEnemy(2, RANDOM_ENEMY);
-  fetchRandomHero(1, RANDOM_HERO);
+  fetchRandomHero(1, Math.floor(Math.random() * 731));
+  fetchRandomEnemy(2, Math.floor(Math.random() * 731));
 }
 
 // click event for player next button, loads in new char
-function handlePlayerNext(){
-  ;
+function handleUserNext(){
+  fetchRandomHero(1, Math.floor(Math.random() * 731));
 }
 
 // click event for enemy next button, loads in new char
 function handleEnemyNext(){
-  ;
+  fetchRandomEnemy(2, Math.floor(Math.random() * 731));
+}
+
+function imgError(image) {
+  image.onerror = "";
+  image.src = "./404.jpg";
+  return true;
 }
 
 // determines a winner and then loads in two new characters
 // OR winner stays on the field
-fightButton.addEventListener("click", handleFight)
-function handleFight(){
-    const userHeroImage = document.getElementById('user-image')
-    userHeroImage.src = ""
-    const enemyHeroImage = document.getElementById('enemy-image')
-    enemyHeroImage.src = "";
-    initPage()
-    console.log("herro")
-    //  initPage()
+function handleFight(){  
+  const winner = goldenAlgorithm();
+  //console.log(`winner: ${winner}`);
+
+  // user wins
+  if (winner === 1)
+  {
+    fetchRandomEnemy(2, Math.floor(Math.random() * 731));
+  }
+
+  // cpu wins
+  else
+  {
+    fetchRandomHero(1, Math.floor(Math.random() * 731));
+  }
+}
+
+function goldenAlgorithm() {
+
+  // ! Fix 
+  for (stat in currentUserHero.powerstats) {
+    // debugger;
+    console.log(stat);
+    if (stat === 'null') {
+      stat = 1;
+    }
+  }
+
+  for (stat in currentEnemyHero.powerstats) {
+    console.log(stat);
+    if (stat === 'null') {
+      stat = 1;
+    }
+  }
+
+  let userPowerLevel  =  ((currentUserHero.powerstats.intelligence * multiplier(0.7, 1.4)) +
+                          (currentUserHero.powerstats.strength     * multiplier(0.5, 1.5)) +
+                          (currentUserHero.powerstats.speed        * multiplier(0.4, 1.8)) +
+                          (currentUserHero.powerstats.durability   * multiplier(0.9, 1.1)) +
+                          (currentUserHero.powerstats.power        * multiplier(0.5, 1.3)) +
+                          (currentUserHero.powerstats.combat       * multiplier(0.9, 1.1)))
+
+  let enemyPowerLevel = ((currentEnemyHero.powerstats.intelligence * multiplier(0.7, 1.4)) +
+                         (currentEnemyHero.powerstats.strength     * multiplier(0.5, 1.5)) +
+                         (currentEnemyHero.powerstats.speed        * multiplier(0.4, 1.8)) +
+                         (currentEnemyHero.powerstats.durability   * multiplier(0.9, 1.1)) +
+                         (currentEnemyHero.powerstats.power        * multiplier(0.5, 1.3)) +
+                         (currentEnemyHero.powerstats.combat       * multiplier(0.9, 1.1)))
+
+  // console.log(`user: ${userPowerLevel}`);
+  // console.log(`enemy: ${enemyPowerLevel}`);
+
+  if(userPowerLevel >= enemyPowerLevel)
+  {
+    return 1;
+  }
+  else
+  {
+    return 2;
+  }
+}
+
+function multiplier(min, max){
+  return Math.random() * (max - min + 1) + min;
 }
 
 const init = () => {
   loadPage();
-  handlePlayerNext();
-  handleEnemyNext();
+  fightButton.addEventListener("click", handleFight);
+  userNextButton.addEventListener("click", handleUserNext);
+  enemyNextButton.addEventListener("click", handleEnemyNext);
 }
 
 init();
-
