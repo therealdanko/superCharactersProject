@@ -8,4 +8,3 @@
 
 API Website: https://superheroapi.com/ids.html
 
-![Image404](https://user-images.githubusercontent.com/98357863/160727964-22c56037-4540-4095-ad71-6116c427a6b8.jpg)
