@@ -45,7 +45,7 @@ function loadHero(data, player){
 
     for (stat in currentUserHero.powerstats) {
       if (currentUserHero.powerstats[stat] === 'null') {
-        currentUserHero.powerstats[stat] = RNGRating(0,100);
+        currentUserHero.powerstats[stat] = RNGRating(0, 100);
       }
     }
     
@@ -81,7 +81,7 @@ function loadHero(data, player){
 
     for (stat in currentEnemyHero.powerstats) {
       if (currentEnemyHero.powerstats[stat] === 'null') {
-        currentEnemyHero.powerstats[stat] = RNGRating(0,100);
+        currentEnemyHero.powerstats[stat] = RNGRating(0, 100);
       }
     }
 
@@ -139,6 +139,7 @@ function imgError(image) {
   return true;
 }
 
+// fetches ID with a broken image
 function fetchAztar(player) {
     fetch(`${URL}59`)
       .then(res  => res.json())
@@ -166,19 +167,19 @@ function handleFight(){
 
 function goldenAlgorithm() {
 
-  let userPowerLevel  =  ((currentUserHero.powerstats.intelligence * multiplier(0.7, 1.4)) +
-                          (currentUserHero.powerstats.strength     * multiplier(0.5, 1.5)) +
-                          (currentUserHero.powerstats.speed        * multiplier(0.4, 1.8)) +
-                          (currentUserHero.powerstats.durability   * multiplier(0.9, 1.1)) +
-                          (currentUserHero.powerstats.power        * multiplier(0.5, 1.3)) +
-                          (currentUserHero.powerstats.combat       * multiplier(0.9, 1.1)))
+  let userPowerLevel  =  ((currentUserHero.powerstats.intelligence * multiplier(0.86, 1.31)) +
+                          (currentUserHero.powerstats.strength     * multiplier(0.77, 1.36)) +
+                          (currentUserHero.powerstats.speed        * multiplier(0.73, 1.27)) +
+                          (currentUserHero.powerstats.durability   * multiplier(0.88, 1.14)) +
+                          (currentUserHero.powerstats.power        * multiplier(0.71, 1.39)) +
+                          (currentUserHero.powerstats.combat       * multiplier(0.83, 1.12)))
 
-  let enemyPowerLevel = ((currentEnemyHero.powerstats.intelligence * multiplier(0.7, 1.4)) +
-                         (currentEnemyHero.powerstats.strength     * multiplier(0.5, 1.5)) +
-                         (currentEnemyHero.powerstats.speed        * multiplier(0.4, 1.8)) +
-                         (currentEnemyHero.powerstats.durability   * multiplier(0.9, 1.1)) +
-                         (currentEnemyHero.powerstats.power        * multiplier(0.5, 1.3)) +
-                         (currentEnemyHero.powerstats.combat       * multiplier(0.9, 1.1)))
+  let enemyPowerLevel = ((currentEnemyHero.powerstats.intelligence * multiplier(0.86, 1.31)) +
+                         (currentEnemyHero.powerstats.strength     * multiplier(0.77, 1.36)) +
+                         (currentEnemyHero.powerstats.speed        * multiplier(0.73, 1.27)) +
+                         (currentEnemyHero.powerstats.durability   * multiplier(0.88, 1.14)) +
+                         (currentEnemyHero.powerstats.power        * multiplier(0.71, 1.39)) +
+                         (currentEnemyHero.powerstats.combat       * multiplier(0.83, 1.12)))
 
   if(userPowerLevel >= enemyPowerLevel)
   {
