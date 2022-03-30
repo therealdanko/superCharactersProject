@@ -196,3 +196,48 @@ button:hover span:after {
     opacity: 1;
     right: 0;
 }
+
+.fade-in-image {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 1.8s;
+    -moz-animation: fadeIn 1.8s;
+    -o-animation: fadeIn 1.8s;
+    -ms-animation: fadeIn 1.8s;
+}
+
+.fade-in-info{
+    
+    /* animation-delay: 20s;
+    transition-delay: 2s; */
+
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 6s;
+    -moz-animation: fadeIn 6s;
+    -o-animation: fadeIn 6s;
+    -ms-animation: fadeIn 6s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    90% {opacity:.9;}
+  }
+  
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    90% {opacity:.9;}
+}
+  
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    90% {opacity:.9;}
+}
+  
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    90% {opacity:.9;}
+}
+  
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    90% {opacity:.9;}
+}
