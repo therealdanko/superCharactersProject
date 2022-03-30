@@ -13,6 +13,7 @@ body{
     font-family: 'Bangers';
     grid-row: 1 / span 1;
     grid-column: 1 / span 3;
+    outline: solid;
 }
 
 #user-image{
@@ -83,7 +84,7 @@ body{
 
 .text{
     padding-left: 1vw;
-    font-size: 1.5vw;
+    font-size: 1.35vw;
     margin-left: auto;
     margin-right: auto;
     width: 75%;
@@ -142,6 +143,29 @@ body{
 
 #button{
     align-self: center;
+}
+
+#play-button{
+    background-color: hsl(115, 63%, 25%);
+    outline: solid;
+    outline-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    font-family: 'Bebas Neue';
+    text-align: center;
+    font-size: xxx-large;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 12vw;
+    height: 3.5vw;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#play-button-container{
+    grid-row: 4 / span 1;
+    grid-column: 2 / span 1;
+    margin: auto;
+    margin-top: 75vh;
 }
 
 button span {
