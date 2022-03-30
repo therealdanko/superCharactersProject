@@ -1,52 +1,87 @@
+body{
+    display: grid;
+    grid-template-rows: 20vh, 35vh, 10vh, 35vh;
+    grid-template-columns: 35vw, 30vw, 35vw;
+    background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/08/Marvel-Vs.-DC.jpg');
+    background-size: 100%, 100%;
+}
+
 #app-title{
     background-color: hsl(0, 77%, 45%);
     text-align: center;
-    font-size: xxx-large;
+    font-size: 90px;
     font-family: 'Bangers';
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 3;
 }
 
 #user-image{
-    display: block;
     margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1vh;
     width: 15vw;
+    grid-row: 4 / span 1;
+    grid-column: 2 / span 1;
+    justify-self: center;
+    align-items: center;
+    outline: solid;
+    outline-width: 10px;
 }
 
 #enemy-image{
-    display: block;
     margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1vh;
     width: 15vw;
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    justify-self: center;
+    align-items: end;
+    outline: solid;
+    outline-width: 10px;
 }
 
 #user-info{
+    font-family: 'Bangers';
     background-color: hsl(115, 63%, 75%);
-    margin-top: 2vh;
+    margin-top: 1vh;
     margin-right: 1vw;
     float: right;
     width: 33vw;
-    height: 90vh;
-}
-
-#user-info{
-    font-family: 'Bangers';
+    height: 88vh;
+    grid-row: 2 / span 3;
+    grid-column: 3 / span 1;
+    opacity: 0.9;
+    border-style: outset;
+    border-width: 7px;
+    border-color: hsl(115, 63%, 25%);
+    outline: solid;
+    padding-top: 0.5vh;
 }
 
 #enemy-info{
     font-family: 'Bangers';
-}
-
-#enemy-info{
     background-color: hsl(347, 68%, 73%);
-    margin-top: 2vh;
+    margin-top: 1vh;
     margin-left: 1vw;
     float: left;
     width: 33vw;
-    height: 90vh;
+    height: 88vh;
+    grid-row: 2 / span 3;
+    grid-column: 1 / span 1;
+    opacity: 0.9;
+    border-style: outset;
+    border-width: 7px;
+    border-color: hsl(347, 68%, 25%);
+    outline: solid;
+    padding-top: 0.5vh;
+}
+
+.text{
+    padding-left: 1vw;
+    font-size: 1.2vw;
 }
 
 #fight-button{
@@ -62,6 +97,8 @@
     width: 9vw;
     transition: all 0.5s;
     cursor: pointer;
+    justify-self: center;
+    align-items: center;
 }
     
 #user-next-button{
@@ -79,6 +116,8 @@
     cursor: pointer;
     margin-right: 1vw;
     float: right;
+    justify-self: center;
+    align-items: end;
 }
 
 #enemy-next-button{
@@ -96,6 +135,8 @@
     cursor: pointer;
     margin-left: 1vw;
     float: left;
+    align-items: start;
+    justify-self: center;
 }
 
 button span {
