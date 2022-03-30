@@ -19,8 +19,7 @@ function fetchRandomHero(player, randomHeroID) {
     .then(res  => res.json())
     .then(data => {
       currentUserHero = data;
-      console.log(currentUserHero);
-      loadHero(data, player)
+      loadHero(data, player);
     })
 }
 
@@ -29,8 +28,7 @@ function fetchRandomEnemy(player, randomEnemyID) {
     .then(res  => res.json())
     .then(data => {
       currentEnemyHero = data;
-      console.log(currentEnemyHero);
-      loadHero(data, player)
+      loadHero(data, player);
     })
 }
 
@@ -45,6 +43,13 @@ function randomNumber() {
 function loadHero(data, player){
   // if player is the user (bottom)
   if(player === 1){
+
+    for (stat in currentUserHero.powerstats) {
+      if (currentUserHero.powerstats[stat] === 'null') {
+        currentUserHero.powerstats[stat] = RNGRating(0,100);
+      }
+    }
+    
     const userHeroImage = document.getElementById('user-image');
     userHeroImage.src = data.image.url;
 
@@ -61,18 +66,26 @@ function loadHero(data, player){
     document.getElementById('user-com').textContent = `Combat : ${data.powerstats.combat}`;
 
     //bio
-    document.getElementById('user-fullname').textContent = `Full Name : ${data.biography["full-name"]}`;
-    document.getElementById('user-alterego').textContent = `Alter Ego : ${data.biography["alter-egos"]}`;
+    document.getElementById('user-fullname').textContent  = `Full Name : ${data.biography["full-name"]}`;
+    document.getElementById('user-alterego').textContent  = `Alter Ego : ${data.biography["alter-egos"]}`;
     document.getElementById('user-alignment').textContent = `Alignment : ${data.biography.alignment}`;
 
     //appearance
     document.getElementById('user-gender').textContent = `Gender : ${data.appearance.gender}`;
-    document.getElementById('user-race').textContent = `Race : ${data.appearance.race}`;
+    document.getElementById('user-race').textContent   = `Race : ${data.appearance.race}`;
     document.getElementById('user-height').textContent = `Height : ${data.appearance.height[0]}, ${data.appearance.height[1]}`;
     document.getElementById('user-weight').textContent = `Weight : ${data.appearance.weight[0]}, ${data.appearance.weight[1]}`;
-  }
+  } 
+
   // if player is the cpu (top)
-  else if(player === 2){
+  if(player === 2){
+
+    for (stat in currentEnemyHero.powerstats) {
+      if (currentEnemyHero.powerstats[stat] === 'null') {
+        currentEnemyHero.powerstats[stat] = RNGRating(0,100);
+      }
+    }
+
     const enemyHeroImage = document.getElementById('enemy-image');
     enemyHeroImage.src = data.image.url;
 
@@ -89,13 +102,13 @@ function loadHero(data, player){
     document.getElementById('enemy-com').textContent = `Combat : ${data.powerstats.combat}`;
 
     //bio
-    document.getElementById('enemy-fullname').textContent = `Full Name : ${data.biography["full-name"]}`;
-    document.getElementById('enemy-alterego').textContent = `Alter Ego : ${data.biography["alter-egos"]}`;
+    document.getElementById('enemy-fullname').textContent  = `Full Name : ${data.biography["full-name"]}`;
+    document.getElementById('enemy-alterego').textContent  = `Alter Ego : ${data.biography["alter-egos"]}`;
     document.getElementById('enemy-alignment').textContent = `Alignment : ${data.biography.alignment}`;
 
     //appearance
     document.getElementById('enemy-gender').textContent = `Gender : ${data.appearance.gender}`;
-    document.getElementById('enemy-race').textContent = `Race : ${data.appearance.race}`;
+    document.getElementById('enemy-race').textContent   = `Race : ${data.appearance.race}`;
     document.getElementById('enemy-height').textContent = `Height : ${data.appearance.height[0]}, ${data.appearance.height[1]}`;
     document.getElementById('enemy-weight').textContent = `Weight : ${data.appearance.weight[0]}, ${data.appearance.weight[1]}`;
   }
@@ -145,22 +158,6 @@ function handleFight(){
 
 function goldenAlgorithm() {
 
-  // ! Fix 
-  for (stat in currentUserHero.powerstats) {
-    // debugger;
-    console.log(stat);
-    if (stat === 'null') {
-      stat = 1;
-    }
-  }
-
-  for (stat in currentEnemyHero.powerstats) {
-    console.log(stat);
-    if (stat === 'null') {
-      stat = 1;
-    }
-  }
-
   let userPowerLevel  =  ((currentUserHero.powerstats.intelligence * multiplier(0.7, 1.4)) +
                           (currentUserHero.powerstats.strength     * multiplier(0.5, 1.5)) +
                           (currentUserHero.powerstats.speed        * multiplier(0.4, 1.8)) +
@@ -192,6 +189,10 @@ function multiplier(min, max){
   return Math.random() * (max - min + 1) + min;
 }
 
+function RNGRating(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 const init = () => {
   loadPage();
   fightButton.addEventListener("click", handleFight);
@@ -199,4 +200,4 @@ const init = () => {
   enemyNextButton.addEventListener("click", handleEnemyNext);
 }
 
-init();
+window.addEventListener('DOMContentLoaded', init);
