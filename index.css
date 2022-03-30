@@ -24,9 +24,10 @@ body{
     grid-row: 4 / span 1;
     grid-column: 2 / span 1;
     justify-self: center;
-    align-items: center;
+    align-self: center;
     outline: solid;
-    outline-width: 10px;
+    outline-width: 12px;
+    outline-color: hsl(115, 63%, 25%);
 }
 
 #enemy-image{
@@ -38,9 +39,10 @@ body{
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
     justify-self: center;
-    align-items: end;
+    align-self: center;
     outline: solid;
-    outline-width: 10px;
+    outline-width: 12px;
+    outline-color: hsl(347, 68%, 25%);
 }
 
 #user-info{
@@ -81,7 +83,12 @@ body{
 
 .text{
     padding-left: 1vw;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    line-height: 1.5;
+    text-align: center;
 }
 
 #fight-button{
@@ -97,8 +104,6 @@ body{
     width: 9vw;
     transition: all 0.5s;
     cursor: pointer;
-    justify-self: center;
-    align-items: center;
 }
     
 #user-next-button{
@@ -116,8 +121,6 @@ body{
     cursor: pointer;
     margin-right: 1vw;
     float: right;
-    justify-self: center;
-    align-items: end;
 }
 
 #enemy-next-button{
@@ -135,8 +138,10 @@ body{
     cursor: pointer;
     margin-left: 1vw;
     float: left;
-    align-items: start;
-    justify-self: center;
+}
+
+#button{
+    align-self: center;
 }
 
 button span {
