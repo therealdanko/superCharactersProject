@@ -107,7 +107,7 @@ body{
     width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
-}
+    }
     
 #user-next-button{
     background-color: hsl(115, 63%, 75%);
