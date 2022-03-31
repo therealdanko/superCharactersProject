@@ -122,7 +122,8 @@ body{
     width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin-right: 0.5vw;
+    margin-right: 1vw;
+    margin-left: 0.5vw;
     float: right;
 }
 
@@ -139,12 +140,14 @@ body{
     width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin-left: 0.5vw;
+    margin-left: 1vw;
+    margin-right: 0.5vw;
     float: left;
 }
 
 #button{
     align-self: center;
+    justify-self: center;
 }
 
 #play-button{
