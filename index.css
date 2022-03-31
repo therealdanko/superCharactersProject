@@ -197,24 +197,24 @@ button:hover span:after {
     right: 0;
 }
 
-.fade-in-image {
-    animation: fadeIn 5s;
-    -webkit-animation: fadeIn 1.8s;
-    -moz-animation: fadeIn 1.8s;
-    -o-animation: fadeIn 1.8s;
-    -ms-animation: fadeIn 1.8s;
+.fade-in-image{
+    animation: fadeIn 0.4s;
+    transition-timing-function: ease-in;
+    transition: 0.25s;
+    -webkit-animation: fadeIn .4s;
+    -moz-animation: fadeIn .4s;
+    -o-animation: fadeIn .4s;
+    -ms-animation: fadeIn .4s;
 }
 
 .fade-in-info{
-    
-    /* animation-delay: 20s;
-    transition-delay: 2s; */
-
-    animation: fadeIn 5s;
-    -webkit-animation: fadeIn 6s;
-    -moz-animation: fadeIn 6s;
-    -o-animation: fadeIn 6s;
-    -ms-animation: fadeIn 6s;
+    animation: fadeIn 2s;  
+    transition-timing-function: ease-in;
+    transition: 0.25s;         
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {
@@ -241,3 +241,4 @@ button:hover span:after {
     0% {opacity:0;}
     90% {opacity:.9;}
 }
+
