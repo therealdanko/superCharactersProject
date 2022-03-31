@@ -1,6 +1,6 @@
 body{
     display: grid;
-    grid-template-rows: 20vh, 35vh, 10vh, 35vh;
+    grid-template-rows: 5vh, 45vh, 5vh, 45vh;
     grid-template-columns: 35vw, 30vw, 35vw;
     background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/08/Marvel-Vs.-DC.jpg');
     background-size: 100%, 100%;
@@ -9,7 +9,7 @@ body{
 #app-title{
     background-color: hsl(0, 77%, 45%);
     text-align: center;
-    font-size: 90px;
+    font-size: 50px;
     font-family: 'Bangers';
     grid-row: 1 / span 1;
     grid-column: 1 / span 3;
@@ -20,14 +20,14 @@ body{
     margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1vh;
+    margin-bottom: 0.3vh;
     width: 15vw;
     grid-row: 4 / span 1;
     grid-column: 2 / span 1;
     justify-self: center;
     align-self: center;
     outline: solid;
-    outline-width: 12px;
+    outline-width: 5px;
     outline-color: hsl(115, 63%, 25%);
 }
 
@@ -42,7 +42,7 @@ body{
     justify-self: center;
     align-self: center;
     outline: solid;
-    outline-width: 12px;
+    outline-width: 5px;
     outline-color: hsl(347, 68%, 25%);
 }
 
@@ -50,36 +50,38 @@ body{
     font-family: 'Bangers';
     background-color: hsl(115, 63%, 75%);
     margin-top: 1vh;
-    margin-right: 1vw;
     float: right;
-    width: 33vw;
-    height: 88vh;
+    width: 27vw;
+    height: 85vh;
     grid-row: 2 / span 3;
     grid-column: 3 / span 1;
     opacity: 0.9;
     border-style: outset;
-    border-width: 7px;
+    border-width: 5px;
     border-color: hsl(115, 63%, 25%);
     outline: solid;
     padding-top: 0.5vh;
+    justify-self: center;
+    align-self: center;
 }
 
 #enemy-info{
     font-family: 'Bangers';
     background-color: hsl(347, 68%, 73%);
     margin-top: 1vh;
-    margin-left: 1vw;
     float: left;
-    width: 33vw;
-    height: 88vh;
+    width: 27vw;
+    height: 85vh;
     grid-row: 2 / span 3;
     grid-column: 1 / span 1;
     opacity: 0.9;
     border-style: outset;
-    border-width: 7px;
+    border-width: 5px;
     border-color: hsl(347, 68%, 25%);
     outline: solid;
     padding-top: 0.5vh;
+    justify-self: center;
+    align-self: center;
 }
 
 .text{
@@ -87,7 +89,7 @@ body{
     font-size: 1.35vw;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 85%;
     line-height: 1.5;
     text-align: center;
 }
@@ -102,7 +104,7 @@ body{
     font-size: xx-large;
     padding-top: 1vh;
     padding-bottom: 1vh;
-    width: 9vw;
+    width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
 }
@@ -117,10 +119,10 @@ body{
     font-size: xx-large;
     padding-top: 1vh;
     padding-bottom: 1vh;
-    width: 9vw;
+    width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin-right: 1vw;
+    margin-right: 0.5vw;
     float: right;
 }
 
@@ -134,10 +136,10 @@ body{
     font-size: xx-large;
     padding-top: 1vh;
     padding-bottom: 1vh;
-    width: 9vw;
+    width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin-left: 1vw;
+    margin-left: 0.5vw;
     float: left;
 }
 
@@ -156,7 +158,7 @@ body{
     padding-top: 1vh;
     padding-bottom: 1vh;
     width: 12vw;
-    height: 3.5vw;
+    height: 8vh;
     transition: all 0.5s;
     cursor: pointer;
 }
@@ -165,7 +167,7 @@ body{
     grid-row: 4 / span 1;
     grid-column: 2 / span 1;
     margin: auto;
-    margin-top: 75vh;
+    margin-top: 43vh;
 }
 
 button span {
@@ -180,7 +182,7 @@ button span:after {
     position: absolute;
     opacity: 0;
     top: 0;
-    right: -20px;
+    right: -10px;
     transition: 0.5s;
 }
       
@@ -198,21 +200,26 @@ button:hover span:after {
 }
 
 .fade-in-image {
+    transition-timing-function: ease-in;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+
     animation-name: fadeIn;
-    animation-duration: 1.8s;
-    -webkit-animation: fadeIn 1.8s;
-    -moz-animation: fadeIn 1.8s;
-    -o-animation: fadeIn 1.8s;
-    -ms-animation: fadeIn 1.8s;
+    animation-duration: 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
 }
 
 .fade-in-info{
+    transition-timing-function: ease-in;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
     animation-name: fadeIn;
-    animation-duration: 6s;
-    -webkit-animation: fadeIn 6s;
-    -moz-animation: fadeIn 6s;
-    -o-animation: fadeIn 6s;
-    -ms-animation: fadeIn 6s;
+    animation-duration: 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {
