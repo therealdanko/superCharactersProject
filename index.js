@@ -8,6 +8,8 @@ const userNextButton   = document.getElementById("user-next-button");
 const enemyNextButton  = document.getElementById("enemy-next-button");
 let currentUserHero;
 let currentEnemyHero;
+const userHeroImage = document.getElementById('user-image')
+const enemyHeroImage = document.getElementById('enemy-image')
 
 
 // fetches random hero data from superhero API
@@ -49,8 +51,9 @@ function loadHero(data, player){
       }
     }
     
-    const userHeroImage = document.getElementById('user-image');
-    userHeroImage.src = data.image.url;
+   const userHeroImage = document.getElementById('user-image');
+   userHeroImage.src = data.image.url; 
+  //  userHeroImage.addEventListener("error", imgError);
 
     // fill in hero data
     // name
@@ -123,7 +126,7 @@ function loadPage(){
 // click event for player next button, loads in new char
 function handleUserNext(){
   fetchRandomHero(1, Math.floor(Math.random() * 731));
-  //fetchAztar(1);
+  // fetchAztar(1);
 }
 
 // click event for enemy next button, loads in new char
@@ -133,7 +136,7 @@ function handleEnemyNext(){
 
 // ! TODO: Handle multiple image 404s
 function imgError(image) {
-  image.onerror = "";
+  // image.onerror = "";
   image.src = "./404.jpg";
   image.alt = "./404.jpg";
   return true;
@@ -218,6 +221,8 @@ const init = () => {
   fightButton.addEventListener("click", handleFight);
   userNextButton.addEventListener("click", handleUserNext);
   enemyNextButton.addEventListener("click", handleEnemyNext);
+  userHeroImage.addEventListener("error", imgError)
+  enemyHeroImage.addEventListener("error", imgError)
 }
 
 window.addEventListener('DOMContentLoaded', init);
