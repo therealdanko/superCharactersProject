@@ -45,6 +45,7 @@ function loadHero(data, player){
   // if player is the user (bottom)
   if(player === 1){
 
+    // handle API null stats with RNG
     for (stat in currentUserHero.powerstats) {
       if (currentUserHero.powerstats[stat] === 'null') {
         currentUserHero.powerstats[stat] = RNGRating(0, 100);
@@ -53,7 +54,6 @@ function loadHero(data, player){
     
    const userHeroImage = document.getElementById('user-image');
    userHeroImage.src = data.image.url; 
-  //  userHeroImage.addEventListener("error", imgError);
 
     // fill in hero data
     // name
@@ -82,6 +82,7 @@ function loadHero(data, player){
   // if player is the cpu (top)
   if(player === 2){
 
+    // handle API null stats with RNG
     for (stat in currentEnemyHero.powerstats) {
       if (currentEnemyHero.powerstats[stat] === 'null') {
         currentEnemyHero.powerstats[stat] = RNGRating(0, 100);
@@ -116,9 +117,7 @@ function loadHero(data, player){
   }
 }
 
-// load all UI elements
 function loadPage(){
-  // init user and enemy hero images and data
   fetchRandomHero(1, Math.floor(Math.random() * 731));
   fetchRandomEnemy(2, Math.floor(Math.random() * 731));
 }
@@ -134,15 +133,14 @@ function handleEnemyNext(){
   fetchRandomEnemy(2, Math.floor(Math.random() * 731));
 }
 
-// ! TODO: Handle multiple image 404s
+// handles broken API images and replaces with a placeholder
 function imgError(image) {
-  // image.onerror = "";
   image.src = "./404.jpg";
   image.alt = "./404.jpg";
   return true;
 }
 
-// fetches ID with a broken image
+// fetches ID with a broken image for debugging
 function fetchAztar(player) {
     fetch(`${URL}59`)
       .then(res  => res.json())
@@ -153,7 +151,6 @@ function fetchAztar(player) {
 }
 
 // determines a winner and then loads in two new characters
-// OR winner stays on the field
 function handleFight(){  
   const winner = goldenAlgorithm();
 
@@ -168,6 +165,7 @@ function handleFight(){
   }
 }
 
+// secret algo to determine the winner
 function goldenAlgorithm() {
 
   let userPowerLevel  =  ((currentUserHero.powerstats.intelligence * multiplier(0.86, 1.31)) +
