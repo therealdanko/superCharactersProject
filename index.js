@@ -6,10 +6,12 @@ const URL              = 'https://www.superheroapi.com/api.php/1955715441283288/
 const fightButton      = document.getElementById("fight-button");
 const userNextButton   = document.getElementById("user-next-button");
 const enemyNextButton  = document.getElementById("enemy-next-button");
-let currentUserHero;
-let currentEnemyHero;
 const userHeroImage = document.getElementById('user-image')
 const enemyHeroImage = document.getElementById('enemy-image')
+const userInfo = document.getElementById('user-info')
+const enemyInfo = document.getElementById('enemy-info')
+let currentUserHero;
+let currentEnemyHero;
 
 
 // fetches random hero data from superhero API
@@ -156,16 +158,28 @@ function fetchAztar(player) {
 // OR winner stays on the field
 function handleFight(){  
   const winner = goldenAlgorithm();
-
-  // user wins
+  // user wins 
   if (winner === 1){
-    fetchRandomEnemy(2, Math.floor(Math.random() * 731));
+    // enemyHeroImage.className = "fade-out-image"
+    // enemyInfo.className = "fade-out-info"
+    handleWinAndLoseAnimations(enemyHeroImage, enemyInfo)
+    setTimeout(() => {fetchRandomEnemy(2, Math.floor(Math.random() * 731))}, 2 * 1000);
+    // enemyHeroImage.className = ""
+    // enemyInfo.className = ""
   }
 
   // cpu wins
   else{
-    fetchRandomHero(1, Math.floor(Math.random() * 731));
+    handleWinAndLoseAnimations(userHeroImage, userInfo)
+    setTimeout(() => {fetchRandomHero(1, Math.floor(Math.random() * 731))}, 2 * 1000);
   }
+}
+
+function handleWinAndLoseAnimations(image, info){
+  image.className = "fade-out-image";
+  info.className = "fade-out-info";
+  // image.className = ""
+  // info.className = ""
 }
 
 function goldenAlgorithm() {

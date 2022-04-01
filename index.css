@@ -212,6 +212,14 @@ button:hover span:after {
     -ms-animation: fadeIn .4s;
 }
 
+.fade-out-image{
+    animation: fadeOut ease 5s;
+    -webkit-animation: fadeOut ease 5s;
+    -moz-animation: fadeOut ease 5s;
+    -o-animation: fadeOut ease 5s;
+    -ms-animation: fadeOut ease 5s;
+}
+
 .fade-in-info{
     animation: fadeIn 2s;  
     transition-timing-function: ease-in;
@@ -220,6 +228,14 @@ button:hover span:after {
     -moz-animation: fadeIn 2s;
     -o-animation: fadeIn 2s;
     -ms-animation: fadeIn 2s;
+}
+
+.fade-out-info{
+    animation: fadeOut 5s;          
+    -webkit-animation: fadeOut ease 5s;
+    -moz-animation: fadeOut ease 5s;
+    -o-animation: fadeOut ease 5s;
+    -ms-animation: fadeOut ease 5s;
 }
 
 @keyframes fadeIn {
@@ -247,3 +263,27 @@ button:hover span:after {
     90% {opacity:.9;}
 }
 
+@keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
+  }
+  
+@-moz-keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+  
+@-webkit-keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+  
+@-o-keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+  
+@-ms-keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
