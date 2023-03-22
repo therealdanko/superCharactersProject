@@ -10,6 +10,9 @@ This is  the finished product
 
 
 As a user, I can click "Play" to start the app and fetch two random super characters to fight.
+As a user, I can click "Next Enemy!" to fetch another random character to replace the current enemy (CPU).
+As a user, I can click "Next Hero!" to fetch another random character to replace the current hero (player).
+As a user, I can click "Fight!" to have the two current characters fight with the winner staying and the loser being replaced.
 
 
 API Website: https://superheroapi.com/ids.html
